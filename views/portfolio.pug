@@ -1,0 +1,180 @@
+extends layout
+
+block content
+
+    .portfolio-container
+    
+        .portfolio-inner
+      
+            .portfolio-maintext
+                span Ben Remnant
+                span.nav-title-color '
+                span s Portfolio
+            
+            .portfolio-subtext
+                span Recent projects 
+                span.nav-title-color & 
+                span concepts I
+                span.nav-title-color '
+                span ve worked on
+    
+        .portfolio-read-more(onclick="scrollToPos(1)")
+            span Scroll to view projects
+            br
+            br
+            .glyphicon.glyphicon-menu-down
+
+
+    .portfolio-items-container
+        
+        a.portfolio-item(href="/portfolio/berd" style="background-image: url('/images/portfolio/berd1.jpg');")
+        
+            .portfolio-item-upper
+                span.portfolio-item-title BERD
+                
+            .portfolio-item-inner 
+                span.portfolio-item-text My development portfolio (this website)
+            
+            
+        a.portfolio-item(href="/portfolio/plastic" style="background-image: url('/images/portfolio/plastic1.jpg');")
+        
+            .portfolio-item-upper
+                span.portfolio-item-title Plastic The Game
+                
+            .portfolio-item-inner
+                span.portfolio-item-text A promotional website for Plastic The Game
+            
+            
+        a.portfolio-item(href="/portfolio/dinz" style="background-image: url('/images/portfolio/dinz1.jpg');")
+        
+            .portfolio-item-upper
+                span.portfolio-item-title DINZ
+                
+            .portfolio-item-inner 
+                span.portfolio-item-text A large scale partner collaboration tool for Danfoss NZ
+            
+            
+        a.portfolio-item(href="/portfolio/zenergy" style="background-image: url('/images/portfolio/zenergy1.jpg');")
+        
+            .portfolio-item-upper
+                span.portfolio-item-title Z Energy Emails
+                
+            .portfolio-item-inner 
+                span.portfolio-item-text HTML emails for Z Energy
+            
+            
+        a.portfolio-item(href="/portfolio/aah" style="background-image: url('/images/portfolio/aah1.jpg');")
+        
+            .portfolio-item-upper
+                span.portfolio-item-title About A House
+                
+            .portfolio-item-inner 
+                span.portfolio-item-text A data collection website for everything about your house
+            
+            
+        //-.portfolio-item
+        
+            .portfolio-item-upper
+                span.portfolio-item-title 
+                
+            .portfolio-item-inner
+                span.portfolio-item-text
+            
+            
+        //-.portfolio-buttons-row
+           .portfolio-buttons-row-inner
+             .glyphicon.glyphicon-menu-left
+             .portfolio-button-dot.selected
+             .portfolio-button-dot
+             .glyphicon.glyphicon-menu-right
+
+
+    .nav
+        .nav-title BERD
+        a.nav-button(href="/") Bio
+        a.nav-button-selected(href="/portfolio") Portfolio
+        a.nav-button(href="/contact") Contact
+        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
+        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
+      
+      
+    script.
+    
+    
+        /* Scroll */
+        
+        var scrollPos = 0;
+        var scrollMax = 1;
+        var scrollReady = true;
+        var scrollTime = 800;
+        var hashString = window.location.hash.replace('#','');
+        if(hashString != "") {
+            scrollToPosInstant(hashString);
+        }
+        
+        window.addEventListener('wheel', function(event) {
+            event.preventDefault();
+            if(scrollReady){
+                if(event.deltaY < 0 && scrollPos != 0) {
+                    scrollUp();
+                } else if(event.deltaY > 0 && scrollPos != scrollMax) {
+                    scrollDown();
+                }
+            }
+        });
+        function scrollUp() {
+            scrollReady = false;
+            scrollPos = scrollPos - 1;
+            window.location.hash = scrollPos;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollDown() {
+            scrollReady = false;
+            scrollPos = Number(scrollPos) + 1;
+            window.location.hash = scrollPos;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollToPos(pos) {
+            scrollReady = false;
+            scrollPos = pos;
+            window.location.hash = scrollPos;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollToPosInstant(pos) {
+            scrollReady = false;
+            scrollPos = pos;
+            window.location.hash = scrollPos;
+            window.scrollTo(0, ($(window).height() * scrollPos) - 60);
+            scrollReady = true;
+        }
+        
+        
+        /* Item Hovers */
+        
+        $( ".portfolio-item" ).hover(
+            function() {
+                $(".portfolio-item-upper", this).slideToggle(100);
+                $(".portfolio-item-inner", this).slideToggle(100);
+            }, function() {
+                $(".portfolio-item-upper", this).slideToggle(100);
+                $(".portfolio-item-inner", this).slideToggle(100);
+            }
+        );
+        
+        
+        /* Levitate */
+      
+        // Make read more cursor hover up and down
+        function levitate(id) {
+            $(id).css('transform', 'translate(0px, -2px)');
+            setTimeout(()=>{levitateR(id);}, 400);
+        }
+        function levitateR(id) {
+            $(id).css('transform', 'translate(0px, 2px)');
+            setTimeout(()=>{levitate(id);}, 400);
+        }
+        levitate(".glyphicon-menu-down");
+        levitate(".glyphicon-menu-up");

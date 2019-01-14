@@ -1,0 +1,112 @@
+extends layout
+
+block content
+
+    .contact-container
+
+        .contact-inner
+      
+            .contact-maintext
+                span Let
+                span.nav-title-color '
+                span s work together
+            
+            .contact-subtext
+                span Fill out this quick form 
+                span.nav-title-color & 
+                span I
+                span '
+                span ll be in touch soon
+                
+            br
+            br
+            
+            input.contact-form-name(placeholder="Full Name")
+            input.contact-form-email(placeholder="Email address")
+            
+            br
+            br
+            
+            textarea.contact-form-message(placeholder="Your message")
+            
+            br
+            br
+        
+            .contact-form-button(onclick="sendMessage()")
+              span Send message
+    
+    
+    .nav
+        .nav-title BERD
+        a.nav-button(href="/") Bio
+        a.nav-button(href="/portfolio") Portfolio
+        a.nav-button-selected(href="/contact") Contact
+        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
+        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
+      
+      
+    script.
+  
+        // Sends a message to berd from a user
+        function sendMessage() {
+            var fullname = $('.contact-form-name').val();
+            var email = $('.contact-form-email').val();
+            var message = $('.contact-form-message').val();
+            
+            // If any form fields are empty display error message
+            if(fullname.length == 0 || email.length == 0 || message.length == 0) {
+                $('.contact-form-button').html('Failed: You must fill out all 3 fields');
+                $('.contact-form-button').css('background-color', '#E05E53');
+                
+                // After a delay set the button back to normal
+                setTimeout(()=>{
+                    $('.contact-form-button').html('Send message'); 
+                    $('.contact-form-button').css('background-color', 'var(--b2)');
+                }, 3000);
+                return;
+            }
+            
+            // If entered email is not in the correct format display error message
+            if(!validateEmail(email)) {
+                $('.contact-form-button').html('Failed: Please make sure your email is correct');
+                $('.contact-form-button').css('background-color', '#E05E53');
+                
+                // After a delay set the button back to normal
+                setTimeout(()=>{
+                    $('.contact-form-button').html('Send message'); 
+                    $('.contact-form-button').css('background-color', 'var(--b2)');
+                }, 3000);
+                return;
+            }
+        
+            // Attempt to send the message, update the button
+            $('.contact-form-button').html('Sending...');
+            $('.contact-form-button').css('background-color', '#FFAB4C');
+            
+            // TODO: Send message
+            console.log('TODO: SEND MESSAGE');
+            
+            setTimeout(()=>{
+            
+                // Message has been sent, clear the fields, update the button
+                $('.contact-form-name').val(''); 
+                $('.contact-form-email').val(''); 
+                $('.contact-form-message').val('');
+                $('.contact-form-button').html('Sent'); 
+                $('.contact-form-button').css('background-color', '#62E55B');
+                
+                // After a delay set the button back to normal
+                setTimeout(()=>{
+                    $('.contact-form-button').html('Send message'); 
+                    $('.contact-form-button').css('background-color', 'var(--b2)');
+                }, 1500);
+                
+            }, 800);
+        }
+        
+        // Regex email format check
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+    

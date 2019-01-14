@@ -1,0 +1,121 @@
+extends portfolio-item
+
+block portfolio-content
+
+    .item-container
+        .item-inner
+            .item-inner-left
+                        
+                .item-maintext 
+                    span.nav-title-color BERD 
+                    span(style="font-size: 50px; color: var(--g2);") Portfolio
+                            
+                .item-stats
+                    span Project Type
+                    span : 
+                    span.nav-title-color(style="float: right;") Portfolio Website
+                    br
+                    span Project Nature
+                    span : 
+                    span.nav-title-color(style="float: right;") Personal 
+                    br
+                    span Languages
+                    span : 
+                    span.nav-title-color(style="float: right;") HTML, CSS, JavaScript
+                    br
+                    span Run Time Enviroment
+                    span : 
+                    span.nav-title-color(style="float: right;") Node.js  
+                     
+                .item-description-info
+                    span.nav-title-color(style="font-size: 0.9em; font-weight: 500;") The following text changes for each image
+                .item-description
+                    span.desc 
+                    
+                        
+                .item-icons
+                    .item-icons-left
+                        a.item-icon(href="/portfolio#1")
+                            .glyphicon.glyphicon-circle-arrow-left
+                            .item-link-icon-text Back
+                            
+                    .item-icons-right
+                        .item-icon
+                            .glyphicon.glyphicon-globe
+                            .item-link-icon-text Live Link
+                            
+                        .item-icon(style="margin-left: 20px;")
+                            .item-github-icon
+                            .item-link-icon-text Github
+                    
+            .item-inner-right
+                .item-image
+                
+                .item-image-nav
+                   .item-image-nav-inner
+                     .glyphicon.glyphicon-menu-left(onclick="prevImage()")
+                     .item-image-nav-dot(id="d1")
+                     .item-image-nav-dot(id="d2")
+                     .item-image-nav-dot(id="d3")
+                     .item-image-nav-dot(id="d4")
+                     .item-image-nav-dot(id="d5")
+                     .item-image-nav-dot(id="d6")
+                     .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                     
+    script.
+        
+        var textArray = [
+            "I wanted to keep the functional design as simple as possible for my portfolio website.<br>This front page is simply greeting the user and showing some navigation options.<br>This simplicity helps the website be easily accessible and responsive to a variaty of devices.",
+            'If you \'Scroll to read more\' on the front page you will get a short bio about me (Ben Remnant) and a few other things like how I came up with the name <span style="color: var(--b1);">BERD</span>.',
+            'This portfolio cover page keeps on with the simple functional design.<br><br>Just scroll down to view the projects.',
+            'Text Description 4',
+            'Text Description 5',
+            'Text Description 6'
+        ];
+        
+        var maxImages = 6;
+        var currentImage = 1;
+        var hashString = window.location.hash.replace('#','');
+        if(hashString != "") {
+            var currentImage = Number(hashString);
+        }
+        $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
+        $("#d"+currentImage).addClass('selected');
+        changeText();
+        
+        $('.item-image-nav-dot').click(function() {
+            jumpToImage($(this).attr('id').replace('d', ''));
+        });
+        
+        function nextImage() {
+            if(currentImage==maxImages) return;
+            $("#d"+currentImage).removeClass('selected');
+            currentImage++;
+            window.location.hash = currentImage;
+            $("#d"+currentImage).addClass('selected');
+            $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
+            changeText();
+        }
+        function prevImage() {
+            if(currentImage==1) return;
+            $("#d"+currentImage).removeClass('selected');
+            currentImage--;
+            window.location.hash = currentImage;
+            $("#d"+currentImage).addClass('selected');
+            $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
+            changeText();
+        }
+        function jumpToImage(imageNum) {
+            $("#d"+currentImage).removeClass('selected');
+            currentImage = imageNum;
+            window.location.hash = currentImage;
+            $("#d"+currentImage).addClass('selected');
+            $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
+            changeText();
+        }
+        function changeText() {
+            $('.desc').html(textArray[currentImage-1]);
+        }
+        
+        
+        

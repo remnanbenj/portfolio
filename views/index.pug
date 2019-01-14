@@ -1,0 +1,89 @@
+extends layout
+
+block content
+
+    .greeting-content
+
+        .greeting-inner
+      
+            .greeting
+                span Hi
+                span.nav-title-color , 
+                span I
+                span.nav-title-color '
+                span m Ben Remnant
+            
+            .greeting-subtitle 
+                span Front 
+                span.nav-title-color &
+                span  back end web developer
+          
+        .read-more(onclick="scrollDown(1)")
+            span.read-more-text Scroll to read more
+            br
+            br
+            .glyphicon.glyphicon-menu-down
+
+
+    .read-more-content
+    
+    
+    .nav
+        .nav-title BERD
+        a.nav-button-selected(href="/") Bio
+        a.nav-button(href="/portfolio") Portfolio
+        a.nav-button(href="/contact") Contact
+        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
+        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
+        
+        
+    script.
+      
+        // Make read more cursor hover up and down
+        function levitate(id) {
+            $(id).css('transform', 'translate(0px, -2px)');
+            setTimeout(()=>{levitateR(id);}, 400);
+        }
+        function levitateR(id) {
+            $(id).css('transform', 'translate(0px, 2px)');
+            setTimeout(()=>{levitate(id);}, 400);
+        }
+        levitate(".glyphicon-menu-down");
+        levitate(".glyphicon-menu-up");
+    
+    
+        /* Scroll */
+        
+        var scrollPos = 0;
+        var scrollMax = 1;
+        var scrollReady = true;
+        var scrollTime = 800;
+        
+        window.addEventListener('wheel', function(event) {
+            event.preventDefault();
+            if(scrollReady){
+                if(event.deltaY < 0 && scrollPos != 0) {
+                    scrollUp();
+                } else if(event.deltaY > 0 && scrollPos != scrollMax) {
+                    scrollDown();
+                }
+            }
+        });
+        function scrollUp() {
+            scrollReady = false;
+            scrollPos = scrollPos - 1;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollDown() {
+            scrollReady = false;
+            scrollPos = scrollPos + 1;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollToTop() {
+            scrollReady = false;
+            scrollPos = 0;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }

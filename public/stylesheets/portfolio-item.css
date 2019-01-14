@@ -1,0 +1,187 @@
+
+.item-container {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    background: #EEEEEE; 
+    overflow: auto;
+    
+}
+
+.item-inner {
+    position: absolute;
+    top: 6vh;
+    left: 8vh;
+    right: 8vh;
+    bottom: 3vh;
+}
+
+.item-inner-left {
+    position: relative;
+    float: left;
+    width: calc(38% - 8vh);
+    height: 100%;
+    padding-right: 8vh;
+}
+
+.item-inner-right {
+    float: left;
+    width: 62%;
+    height: 100%;
+}
+
+
+/* LEFT COLUMN */
+
+.item-maintext {
+    margin-bottom: 25px;
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--g1);
+    line-height: 50px;
+}
+
+.item-stats {
+    margin-left: 3px;
+    margin-bottom: 25px;
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--g2);
+}
+
+.item-description {
+    margin-bottom: 40px;
+    margin-left: 3px;
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--g2);
+    
+    text-align: left;
+}
+
+.item-description-info {
+    margin-left: 3px;
+    line-height: 28px;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--g2);
+    
+    text-align: center;
+}
+
+/* Item Icons */
+
+.item-icons {
+    overflow: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 8vh;
+    
+}
+
+.item-icons-left {
+    float: left;
+}
+
+.item-icons-right {
+    float: right;
+}
+
+.item-icon {
+    display: inline-block;
+    font-size: 50px;
+    color: #999999;
+    text-align: center;
+    text-decoration: none;
+    
+    cursor: pointer;
+}
+
+.item-icon:hover {
+    color: #7F7F7F;
+}
+
+.item-icon:hover .item-github-icon {
+    background-image: url('/images/githubDarkGrey.jpg');
+}
+
+.item-github-icon {
+    display: inline-block;
+    
+    width: 52px;
+    height: 52px;
+    
+    cursor: pointer;
+    border-radius: 6px;
+    border-left: 2px solid #EEEEEE;
+    border-right: 2px solid #EEEEEE;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/images/githubGrey.jpg');
+    background-size: 98%;
+}
+
+.item-link-icon-text {
+    font-size: 15px;
+}
+
+
+/* RIGHT COLUMN */
+
+.item-image {
+    padding-top: 56%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+
+/* Item image nav buttons */
+
+.item-image-nav {
+    margin-top: 20px;
+    width: 100%;
+    padding-top: 2px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.item-image-nav-inner {
+    display: inline-block;
+}
+
+.item-image-nav-dot {
+    display: inline-block;
+    background: var(--g2);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.item-image-nav-dot:hover {
+    background: var(--b2);
+}
+.item-image-nav-dot.selected {
+    background: var(--b2);
+}
+
+.glyphicon-menu-left {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.glyphicon-menu-right {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.glyphicon-menu-left:hover, .glyphicon-menu-right:hover {
+    color: var(--b2);
+}
