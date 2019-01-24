@@ -68,3 +68,44 @@ html(lang="en")
             $('.phone-nav-background').css('display', 'none');
             $('.phone-nav-button, .phone-nav-github, .phone-nav-linkedin').animate({'width': 'toggle'}, 160);
         });
+        
+        
+        // ====Scroll====
+        
+        var scrollPos = 0;
+        var scrollMax = 1;
+        var scrollReady = true;
+        var scrollTime = 800;
+        var hashString = window.location.hash.replace('#','');
+        if(hashString != "") {
+            scrollToPosInstant(hashString);
+        }
+        
+        function scrollUp() {
+            scrollReady = false;
+            scrollPos = scrollPos - 1;
+            window.location.hash = scrollPos;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollDown() {
+            scrollReady = false;
+            scrollPos = Number(scrollPos) + 1;
+            window.location.hash = scrollPos;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollToPos(pos) {
+            scrollReady = false;
+            scrollPos = pos;
+            window.location.hash = scrollPos;
+            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
+            setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollToPosInstant(pos) {
+            scrollReady = false;
+            scrollPos = pos;
+            window.location.hash = scrollPos;
+            window.scrollTo(0, ($(window).height() * scrollPos) - 60);
+            scrollReady = true;
+        }

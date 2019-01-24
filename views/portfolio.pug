@@ -65,19 +65,17 @@ block content
              
              
     script.
-    
-    
-        /* Scroll */
+            
+        // When hovering a project item, slide up its smal description
+        $( ".portfolio-item" ).hover(
+            function() {
+                $(".portfolio-item-inner", this).slideToggle(100);
+            }, function() {
+                $(".portfolio-item-inner", this).slideToggle(100);
+            }
+        );
         
-        var scrollPos = 0;
-        var scrollMax = 1;
-        var scrollReady = true;
-        var scrollTime = 800;
-        var hashString = window.location.hash.replace('#','');
-        if(hashString != "") {
-            scrollToPosInstant(hashString);
-        }
-        
+        // Add custom scroll
         window.addEventListener('wheel', function(event) {
             event.preventDefault();
             if(scrollReady){
@@ -88,52 +86,15 @@ block content
                 }
             }
         });
-        function scrollUp() {
-            scrollReady = false;
-            scrollPos = scrollPos - 1;
-            window.location.hash = scrollPos;
-            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
-            setTimeout(()=>{scrollReady = true;}, scrollTime);
+      
+        // Make read more cursor hover up and down
+        function levitate(id) {
+            $(id).css('transform', 'translate(0px, -2px)');
+            setTimeout(()=>{levitateR(id);}, 400);
         }
-        function scrollDown() {
-            scrollReady = false;
-            scrollPos = Number(scrollPos) + 1;
-            window.location.hash = scrollPos;
-            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
-            setTimeout(()=>{scrollReady = true;}, scrollTime);
-        }
-        function scrollToPos(pos) {
-            scrollReady = false;
-            scrollPos = pos;
-            window.location.hash = scrollPos;
-            $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
-            setTimeout(()=>{scrollReady = true;}, scrollTime);
-        }
-        function scrollToPosInstant(pos) {
-            scrollReady = false;
-            scrollPos = pos;
-            window.location.hash = scrollPos;
-            window.scrollTo(0, ($(window).height() * scrollPos) - 60);
-            scrollReady = true;
-        }
-            
-        /* Item Hover */
-        $( ".portfolio-item" ).hover(
-            function() {
-                $(".portfolio-item-inner", this).slideToggle(100);
-            }, function() {
-                $(".portfolio-item-inner", this).slideToggle(100);
-            }
-        );
-        
-        /* Read More Cursor Levitate */
-        function levitate(elemid) {
-            $(elemid).css('transform', 'translate(0px, -2px)');
-            setTimeout(()=>{levitateR(elemid);}, 400);
-        }
-        function levitateR(elemid) {
-            $(elemid).css('transform', 'translate(0px, 2px)');
-            setTimeout(()=>{levitate(elemid);}, 400);
+        function levitateR(id) {
+            $(id).css('transform', 'translate(0px, 2px)');
+            setTimeout(()=>{levitate(id);}, 400);
         }
         levitate(".glyphicon-menu-down");
         levitate(".glyphicon-menu-up");
