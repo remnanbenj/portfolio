@@ -1,0 +1,164 @@
+
+/* On focus */
+
+input:focus { 
+  outline-color: var(--b1);
+}
+
+textarea:focus { 
+  outline-color: var(--b1);
+}
+
+
+/* Contact content */
+
+.contact-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 110px);
+    background: #EEEEEE;
+    background-position: 0% 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/images/contact.jpg');
+    overflow: auto;
+    padding-bottom: 50px;
+}
+
+.contact-inner {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    bottom: 0%;
+}
+
+.contact-maintext {
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--g1);
+}
+
+.contact-subtext {
+    margin-top: 15px;
+    margin-left: 3px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--g2);
+}
+
+
+/* Contact Form */
+
+.contact-form-name {
+    display: block;
+    float: left;
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border: 1px solid var(--b2);
+    font-size: 16px;
+    padding: 8px;
+    padding-bottom: 6px;
+}
+
+.contact-form-email {
+    float: right;
+    display: block;
+    width: 52%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border: 1px solid var(--b2);
+    font-size: 16px;
+    padding: 8px;
+    padding-bottom: 6px;
+}
+
+.contact-form-message {
+    display: block;
+    width: calc(100% - 18px);
+    margin: 0 auto;
+    margin-bottom: 15px;
+    height: 40%;
+    border: 1px solid var(--b2);
+    font-size: 16px;
+    font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+    padding: 8px;
+    padding-bottom: 6px;
+    resize: none;
+}
+
+.contact-form-button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background: var(--b2);
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s;
+    margin-bottom: 20px;
+}
+.contact-form-button:hover {
+    transform: translate(0px, -3px);
+}
+
+
+/* Phone media */
+
+@media only screen and (max-width: 600px) {
+    
+    .contact-container {
+        background-position: 50% 0%;
+    }
+    
+    .contact-inner {
+        top: 0%;
+        left: 0%;
+        right: 0%;
+        bottom: 0%;
+    }
+
+    .contact-maintext {
+        padding: 20px;
+        padding-top: 30px;
+        padding-bottom: 0px;
+        text-align: center;
+        font-size: 8vh;
+        font-weight: bold;
+        color: var(--g1);
+    }
+
+    .contact-subtext {
+        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        text-align: center;
+        font-size: 2.8vh;
+        margin-top: 2vh;
+        font-weight: bold;
+        color: var(--g2);
+    }
+
+    .contact-form-name {
+        float: none;
+        width: calc(90% - 18px);
+    }
+
+    .contact-form-email {
+        float: none;
+        width: calc(90% - 18px);
+    }
+
+    .contact-form-message {
+        width: calc(90% - 18px);
+    }
+    
+    .contact-form-button {
+        width: 90%;
+        margin-bottom: 80px;
+    }
+    
+}

@@ -1,0 +1,237 @@
+
+.greeting-content {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: #EEEEEE;
+    background-position: 100% 20%;
+    background-size: auto 150%;
+    background-repeat: no-repeat;
+    background-image: url('/images/bio.jpg');
+}
+
+.greeting-inner {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    bottom: 0%;
+}
+
+.greeting {
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--g1);
+}
+
+.greeting-subtitle {
+    margin-top: 15px;
+    margin-left: 3px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.read-more {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border-left: 2px solid rgba(0,0,0,0);
+    border-right: 2px solid rgba(0,0,0,0);
+    border-radius: 6px;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    color: var(--c2);
+    border-left: 2px solid var(--b2);
+    border-right: 2px solid var(--b2);
+}
+
+.read-more .glyphicon {
+    color: var(--b1);
+    transition: all 0.4s;
+}
+
+/* Second page */
+
+.bio-content {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: calc(100vh - 60px);
+    background: #ffffff;
+    margin: 0 auto;
+}
+
+.bio-left {
+    position: relative;
+    float: left;
+    width: calc(58vh - 100px);
+    height: calc(100vh - 60px);
+    text-align: center;
+    overflow: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.bio-name {
+    margin-top: 20px;
+    font-size: 30px;
+    color: var(--b1);
+}
+
+.bio-profession {
+    margin-top: 6px;
+    font-size: 20px;
+}
+
+.bio-photo {
+    /*margin-top: calc(((100vh - 60px) * 0.25) - 70px);*/
+    margin-top: calc(10vh + 40px);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.bio-photo-inner {
+    width: 100%;
+    padding-top: 100%;
+    
+    border-radius: 50%;
+    
+    background: #EEEEEE;
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/images/portrait/2.jpg');
+}
+
+/* Bio Right */
+
+.bio-right {
+    position: relative;
+    float: right;
+    width: calc(100% - 58vh - 30px);
+    height: calc(100vh - 60px);
+    text-align: left;
+    overflow: auto; 
+}
+
+.bio-right-nav {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.bio-right-nav-button {
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10vh;
+    cursor: pointer;
+    border-radius: 6px;
+    border-left: 2px solid rgba(0,0,0,0);
+    border-right: 2px solid rgba(0,0,0,0);
+}
+
+.bio-right-nav-button:hover {
+    color: var(--g1);
+    border-left: 2px solid var(--b2);
+    border-right: 2px solid var(--b2);
+}
+.bio-right-nav-button.selected {
+    color: var(--b1);
+}
+.bio-right-nav-button.selected:hover {
+    color: rgba(77,180,255,1);
+}
+
+.bio-desc {
+    display: none;
+    padding-left: 15px;
+    font-size: 18px;
+    line-height: 1.3;
+    padding-right: 50px;
+}
+.bio-desc-title {
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .bio-content {
+        height: auto;
+    }
+    .bio-left {
+        height: auto;
+        width: calc(100% - 40px);
+        padding: 20px;
+    }
+    .bio-right {
+        height: auto;
+        width: calc(100%);
+    }
+    .bio-photo {
+        margin-top: 0px;
+    }
+    .bio-profession {
+        margin-bottom: 30px;
+    }
+    .bio-right-nav {
+        display: none;
+    }
+    .bio-desc {
+        display: block;
+        margin-bottom: 50px;
+        text-align: justify;
+        padding-left: 30px;
+        padding-right: 30px;
+        
+    }
+    .bio-desc-title {
+        display: block;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    
+    
+    .greeting-inner {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        bottom: 0%;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .greeting {
+        font-size: 8vh;
+        margin-top: calc(5vh - 20px);
+    }
+    
+    .greeting-subtitle {
+        margin-top: 2vh;
+        font-size: 3vh;
+    }
+    
+    .read-more {
+        bottom: 10vh;
+        left: 0%;
+        width: 100%;
+        padding: 0px;
+        border: none;
+    }
+    .read-more:hover {
+        border: none;
+    }
+    
+    .greeting-content {
+        background-position: 80% 50%;
+    }
+}

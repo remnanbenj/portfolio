@@ -1,21 +1,26 @@
 extends layout
 
 block content
+    link(rel='stylesheet', href='/stylesheets/portfolio.css')
 
     .portfolio-container
     
         .portfolio-inner
       
             .portfolio-maintext
-                span Ben Remnant
-                span.nav-title-color '
+                span Ben 
+                br.phone-only
+                span Remnant
+                span.text-color-b1 '
                 span s Portfolio
             
             .portfolio-subtext
                 span Recent projects 
-                span.nav-title-color & 
-                span concepts I
-                span.nav-title-color '
+                span.text-color-b1 & 
+                br.phone-only
+                span concepts 
+                span I
+                span.text-color-b1 '
                 span ve worked on
     
         .portfolio-read-more(onclick="scrollToPos(1)")
@@ -27,59 +32,29 @@ block content
 
     .portfolio-items-container
         
-        a.portfolio-item(href="/portfolio/berd" style="background-image: url('/images/portfolio/berd1.jpg');")
-        
-            .portfolio-item-upper
-                span.portfolio-item-title BERD
-                
+        a.portfolio-item(href="/portfolio/berd" style="background-color: #FFFFFF; background-image: url('/images/portfolio/berd0.jpg');")
             .portfolio-item-inner 
                 span.portfolio-item-text My development portfolio (this website)
             
-            
-        a.portfolio-item(href="/portfolio/plastic" style="background-image: url('/images/portfolio/plastic1.jpg');")
-        
-            .portfolio-item-upper
-                span.portfolio-item-title Plastic The Game
-                
+        a.portfolio-item(href="/portfolio/plastic" style="background-color: #444444; background-image: url('/images/portfolio/plastic0.jpg');")
             .portfolio-item-inner
                 span.portfolio-item-text A promotional website for Plastic The Game
             
-            
-        a.portfolio-item(href="/portfolio/dinz" style="background-image: url('/images/portfolio/dinz1.jpg');")
-        
-            .portfolio-item-upper
-                span.portfolio-item-title DINZ
-                
+        a.portfolio-item(href="/portfolio/dinz" style="background-color: #DE000D; background-image: url('/images/portfolio/dinz0.jpg');")
             .portfolio-item-inner 
                 span.portfolio-item-text A large scale partner collaboration tool for Danfoss NZ
             
-            
-        a.portfolio-item(href="/portfolio/zenergy" style="background-image: url('/images/portfolio/zenergy1.jpg');")
-        
-            .portfolio-item-upper
-                span.portfolio-item-title Z Energy Emails
-                
+        a.portfolio-item(href="/portfolio/zenergy" style="background-color: #1E196B; background-image: url('/images/portfolio/zenergy0.jpg');")
             .portfolio-item-inner 
                 span.portfolio-item-text HTML emails for Z Energy
             
-            
-        a.portfolio-item(href="/portfolio/aah" style="background-image: url('/images/portfolio/aah1.jpg');")
-        
-            .portfolio-item-upper
-                span.portfolio-item-title About A House
-                
+        a.portfolio-item(href="/portfolio/aah" style="background-color: #EEEEEE; background-image: url('/images/portfolio/aah0.jpg');")
             .portfolio-item-inner 
                 span.portfolio-item-text A data collection website for everything about your house
             
-            
         //-.portfolio-item
-        
-            .portfolio-item-upper
-                span.portfolio-item-title 
-                
             .portfolio-item-inner
                 span.portfolio-item-text
-            
             
         //-.portfolio-buttons-row
            .portfolio-buttons-row-inner
@@ -87,17 +62,8 @@ block content
              .portfolio-button-dot.selected
              .portfolio-button-dot
              .glyphicon.glyphicon-menu-right
-
-
-    .nav
-        .nav-title BERD
-        a.nav-button(href="/") Bio
-        a.nav-button-selected(href="/portfolio") Portfolio
-        a.nav-button(href="/contact") Contact
-        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
-        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
-      
-      
+             
+             
     script.
     
     
@@ -150,31 +116,24 @@ block content
             window.scrollTo(0, ($(window).height() * scrollPos) - 60);
             scrollReady = true;
         }
-        
-        
-        /* Item Hovers */
-        
+            
+        /* Item Hover */
         $( ".portfolio-item" ).hover(
             function() {
-                $(".portfolio-item-upper", this).slideToggle(100);
                 $(".portfolio-item-inner", this).slideToggle(100);
             }, function() {
-                $(".portfolio-item-upper", this).slideToggle(100);
                 $(".portfolio-item-inner", this).slideToggle(100);
             }
         );
         
-        
-        /* Levitate */
-      
-        // Make read more cursor hover up and down
-        function levitate(id) {
-            $(id).css('transform', 'translate(0px, -2px)');
-            setTimeout(()=>{levitateR(id);}, 400);
+        /* Read More Cursor Levitate */
+        function levitate(elemid) {
+            $(elemid).css('transform', 'translate(0px, -2px)');
+            setTimeout(()=>{levitateR(elemid);}, 400);
         }
-        function levitateR(id) {
-            $(id).css('transform', 'translate(0px, 2px)');
-            setTimeout(()=>{levitate(id);}, 400);
+        function levitateR(elemid) {
+            $(elemid).css('transform', 'translate(0px, 2px)');
+            setTimeout(()=>{levitate(elemid);}, 400);
         }
         levitate(".glyphicon-menu-down");
         levitate(".glyphicon-menu-up");

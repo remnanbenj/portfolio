@@ -1,122 +1,131 @@
-extends portfolio-item
+extends ../layout
 
-block portfolio-content
+block content
+    link(rel='stylesheet', href='/stylesheets/portfolio-item.css')
 
     .item-container
         .item-inner
             .item-inner-left
                         
                 .item-maintext 
-                    span.nav-title-color PLASTIC 
+                    span.text-color-b1 PLASTIC 
                     span(style="font-size: 50px; color: var(--g2);") the game
                             
                 .item-stats
                     span Project Type
                     span : 
-                    span.nav-title-color(style="float: right;") Promotional Website
+                    span.text-color-b1(style="float: right;") Promotional Website
                     br
                     span Project Nature
                     span : 
-                    span.nav-title-color(style="float: right;") Concept 
+                    span.text-color-b1(style="float: right;") Concept 
                     br
                     span Languages
                     span : 
-                    span.nav-title-color(style="float: right;") HTML, CSS, JavaScript
+                    span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
                     br
                     span Run Time Enviroment
                     span : 
-                    span.nav-title-color(style="float: right;") Node.js 
+                    span.text-color-b1(style="float: right;") Node.js 
                      
-                .item-description-info
-                    span.nav-title-color(style="font-size: 0.9em; font-weight: 500;") The following text changes for each image
+                .item-description-title
                 .item-description
-                    span.desc 
                     
-                        
                 .item-icons
                     .item-icons-left
                         a.item-icon(href="/portfolio#1")
                             .glyphicon.glyphicon-circle-arrow-left
-                            .item-link-icon-text Back
+                            .item-icon-text Back
                             
                     .item-icons-right
-                        .item-icon
+                        a.item-icon(href="http://berd.co.nz:3005/" target="_blank")
                             .glyphicon.glyphicon-globe
-                            .item-link-icon-text Live Link
+                            .item-icon-text Live Link
                             
-                        .item-icon(style="margin-left: 20px;")
+                        a.item-icon(href="https://github.com/remnanbenj/plastic/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
-                            .item-link-icon-text Github
+                            .item-icon-text Github
                     
             .item-inner-right
-                .item-image
+            
+                .item-image(style="background-color: #444444;")
                 
-                .item-image-nav
-                   .item-image-nav-inner
-                     .glyphicon.glyphicon-menu-left(onclick="prevImage()")
-                     .item-image-nav-dot(id="d1")
-                     .item-image-nav-dot(id="d2")
-                     .item-image-nav-dot(id="d3")
-                     .item-image-nav-dot(id="d4")
-                     .item-image-nav-dot(id="d5")
-                     .item-image-nav-dot(id="d6")
-                     .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                .item-image-nav.noselect
+                    .item-image-nav-inner
+                        .glyphicon.glyphicon-menu-left(onclick="prevImage()")
+                        .item-image-nav-dot(id="d0")
+                        .item-image-nav-dot(id="d1")
+                        .item-image-nav-dot(id="d2")
+                        .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                        
+                    .item-image-nav-info &nbsp;
+                    
+                    .item-image-nav-screensize
+                        .glyphicon.glyphicon-menu-up
+                        .item-monitor-icon.selected
+                        .glyphicon.glyphicon-phone
+                        .glyphicon.glyphicon-menu-down
+                        
+                        
+            .item-inner-bottom 
+            
+                .item-description-title
+                .item-description
+                            
+                .item-stats
+                    span Project Type
+                    span : 
+                    span.text-color-b1(style="float: right;") Promotional Website
+                    br
+                    span Project Nature
+                    span : 
+                    span.text-color-b1(style="float: right;") Concept 
+                    br
+                    span Languages
+                    span : 
+                    span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
+                    br
+                    span Run Time Enviroment
+                    span : 
+                    span.text-color-b1(style="float: right;") Node.js 
+                    
+                .item-icons
+                    .item-icons-left
+                        a.item-icon(href="/portfolio#1")
+                            .glyphicon.glyphicon-circle-arrow-left
+                            .item-icon-text Back
+                            
+                    .item-icons-right
+                        a.item-icon(href="http://berd.co.nz:3005/" target="_blank")
+                            .glyphicon.glyphicon-globe
+                            .item-icon-text Live Link
+                            
+                        a.item-icon(href="https://github.com/remnanbenj/plastic/" target="_blank" style="margin-left: 20px;")
+                            .item-github-icon
+                            .item-icon-text Github
                      
     script.
         
-        var textArray = [
-            'Text Description 1',
-            'Text Description 2',
-            'Text Description 3',
-            'Text Description 4',
-            'Text Description 5',
-            'Text Description 6'
-        ];
+        // Changeable variables
         var imageURL = 'plastic';
+        var maxImages = 2;
+        var titleArray = [
+            'Introduction',
+            'Home',
+            'Home: Support'
+        ];
+        var textArray = [
+            'This website was a concept I did for an up and coming game called PLASTIC. If you want to find out more about the game you can click the Live Link below to go to the website. All the social media links work (apart from YouTube).',
+            'This is the only page I created for this concept. The descriptions are filled with placeholder text. Images credited to the creator of PLASTIC the game.',
+            'Further down the home page is the support for the game. The gofundme link is to some random placeholder page and the patreon button doesn\'t link anywhere.'
+        ];
+        var phoneImageAmounts = [
+            1,
+            2,
+            1
+        ];
         
-        var maxImages = 6;
-        var currentImage = 1;
-        var hashString = window.location.hash.replace('#','');
-        if(hashString != "") {
-            var currentImage = Number(hashString);
-        }
-        $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-        $("#d"+currentImage).addClass('selected');
-        changeText();
-        
-        $('.item-image-nav-dot').click(function() {
-            jumpToImage($(this).attr('id').replace('d', ''));
-        });
-        
-        function nextImage() {
-            if(currentImage==maxImages) return;
-            $("#d"+currentImage).removeClass('selected');
-            currentImage++;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-            changeText();
-        }
-        function prevImage() {
-            if(currentImage==1) return;
-            $("#d"+currentImage).removeClass('selected');
-            currentImage--;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-            changeText();
-        }
-        function jumpToImage(imageNum) {
-            $("#d"+currentImage).removeClass('selected');
-            currentImage = imageNum;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
-            changeText();
-        }
-        function changeText() {
-            $('.desc').html(textArray[currentImage-1]);
-        }
+    script(src="/javascripts/portfolioItemImageScroll.js").
         
         
         

@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    link(rel='stylesheet', href='/stylesheets/contact.css')
 
     .contact-container
 
@@ -8,12 +9,12 @@ block content
       
             .contact-maintext
                 span Let
-                span.nav-title-color '
+                span.text-color-b1 '
                 span s work together
             
             .contact-subtext
                 span Fill out this quick form 
-                span.nav-title-color & 
+                span.text-color-b1 & 
                 span I
                 span '
                 span ll be in touch soon
@@ -24,27 +25,13 @@ block content
             input.contact-form-name(placeholder="Full Name")
             input.contact-form-email(placeholder="Email address")
             
-            br
-            br
-            
             textarea.contact-form-message(placeholder="Your message")
             
-            br
-            br
         
             .contact-form-button(onclick="sendMessage()")
               span Send message
-    
-    
-    .nav
-        .nav-title BERD
-        a.nav-button(href="/") Bio
-        a.nav-button(href="/portfolio") Portfolio
-        a.nav-button-selected(href="/contact") Contact
-        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
-        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
-      
-      
+              
+              
     script.
   
         // Sends a message to berd from a user

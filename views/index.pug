@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    link(rel='stylesheet', href='/stylesheets/bio.css')
 
     .greeting-content
 
@@ -8,36 +9,83 @@ block content
       
             .greeting
                 span Hi
-                span.nav-title-color , 
+                span.text-color-b1 , 
                 span I
-                span.nav-title-color '
+                span.text-color-b1 '
                 span m Ben Remnant
             
             .greeting-subtitle 
                 span Front 
-                span.nav-title-color &
-                span  back end web developer
+                span.text-color-b1 & 
+                span back end 
+                br.phone-only
+                span web developer
           
-        .read-more(onclick="scrollDown(1)")
-            span.read-more-text Scroll to read more
+        .read-more.no-select(onclick="scrollDown()")
+            span.no-select.read-more-text Scroll to read more
             br
             br
-            .glyphicon.glyphicon-menu-down
+            .glyphicon.glyphicon-menu-down.no-select
 
 
-    .read-more-content
-    
-    
-    .nav
-        .nav-title BERD
-        a.nav-button-selected(href="/") Bio
-        a.nav-button(href="/portfolio") Portfolio
-        a.nav-button(href="/contact") Contact
-        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
-        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
+    .bio-content
+        .bio-left
+            .bio-photo
+                .bio-photo-inner
+            .bio-name Ben Remnant
+            .bio-profession 
+                span Front 
+                span.text-color-b1 & 
+                span back end 
+                span web developer
+                
+        .bio-right
         
+            .bio-right-nav
+                .bio-right-nav-button.selected(id="about") About me
+                .bio-right-nav-button(id="history") My Recent History
+                .bio-right-nav-button(id="software") Sofware Development Ability
+                
+                
+            .bio-desc.bio-about
+                span.bio-desc-title About Me
+                span Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar blandit leo vitae aliquet. Suspendisse lacinia ultrices purus vitae posuere. Vivamus varius iaculis turpis, eleifend mollis sem consequat at. Nam sit amet elementum lorem, ut facilisis ex. Donec maximus egestas facilisis. 
+                br
+                br
+                span Nulla leo ante, gravida ut ullamcorper at, suscipit sed ante. Integer dignissim accumsan erat quis egestas. Aenean lacinia, quam eget efficitur blandit, ante ex interdum dui, vitae mattis orci arcu non diam. Aenean semper malesuada eros, at tincidunt lectus vehicula non.
+                br
+                br
+                span Pellentesque consequat odio sit amet ante malesuada, a sagittis mauris vulputate.
+                
+            .bio-desc.bio-history
+                span.bio-desc-title My Recent History
+                span Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur faucibus consequat fringilla. Donec finibus varius sagittis. Suspendisse sollicitudin, leo ut finibus iaculis, turpis odio hendrerit mi, sit amet volutpat ex ante fermentum sem. 
+                br
+                br
+                span In commodo, eros id tincidunt laoreet, neque ante pretium est, eu pulvinar purus augue elementum mi. Nullam eget rutrum nulla. Phasellus sed lacus nec est convallis condimentum. Praesent sodales enim turpis, eget ullamcorper lectus volutpat id.
+                
+            .bio-desc.bio-software
+                span.bio-desc-title Sofware Development
+                span Sed sit amet nisl ante. Nullam vel velit maximus, fringilla sapien eu, efficitur metus. Vestibulum tempor molestie justo id fringilla. Quisque nec justo mauris. Sed id ante eget dolor malesuada vulputate. Maecenas sit amet elementum urna. Nam et euismod lectus. 
+                
         
     script.
+        $('.bio-right-nav-button').css('color', 'var(--g1)');
+        $("#about").css('color', 'var(--b1)');
+        $(".bio-about").css('display', 'block');
+    
+        $('.bio-right-nav-button').click(function() {
+            $('.bio-right-nav-button').css('color', 'var(--g1)');
+            $(".bio-desc").css('display', 'none');
+            $(this).css('color', 'var(--b1)');
+            if($(this).attr('id') == 'about') {
+                $(".bio-about").css('display', 'block');
+            } else if($(this).attr('id') == 'history') {
+                $(".bio-history").css('display', 'block');
+            } else if($(this).attr('id') == 'software') {
+                $(".bio-software").css('display', 'block');
+            }
+        });
       
         // Make read more cursor hover up and down
         function levitate(id) {
@@ -58,6 +106,10 @@ block content
         var scrollMax = 1;
         var scrollReady = true;
         var scrollTime = 800;
+        var hashString = window.location.hash.replace('#','');
+        if(hashString != "") {
+            scrollToPosInstant(hashString);
+        }
         
         window.addEventListener('wheel', function(event) {
             event.preventDefault();
@@ -72,18 +124,28 @@ block content
         function scrollUp() {
             scrollReady = false;
             scrollPos = scrollPos - 1;
+            window.location.hash = scrollPos;
             $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
             setTimeout(()=>{scrollReady = true;}, scrollTime);
         }
         function scrollDown() {
             scrollReady = false;
-            scrollPos = scrollPos + 1;
+            scrollPos = Number(scrollPos) + 1;
+            window.location.hash = scrollPos;
             $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
             setTimeout(()=>{scrollReady = true;}, scrollTime);
         }
-        function scrollToTop() {
+        function scrollToPos(pos) {
             scrollReady = false;
-            scrollPos = 0;
+            scrollPos = pos;
+            window.location.hash = scrollPos;
             $("html, body").animate({ scrollTop: ($(window).height() * scrollPos) - 60 }, scrollTime);
             setTimeout(()=>{scrollReady = true;}, scrollTime);
+        }
+        function scrollToPosInstant(pos) {
+            scrollReady = false;
+            scrollPos = pos;
+            window.location.hash = scrollPos;
+            window.scrollTo(0, ($(window).height() * scrollPos) - 60);
+            scrollReady = true;
         }

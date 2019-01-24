@@ -1,130 +1,154 @@
-extends portfolio-item
+extends ../layout
 
-block portfolio-content
+block content
+    link(rel='stylesheet', href='/stylesheets/portfolio-item.css')
 
     .item-container
         .item-inner
             .item-inner-left
                         
                 .item-maintext 
-                    span.nav-title-color A
+                    span.text-color-b1 A
                     span(style="font-size: 50px; color: var(--g2);") bout 
-                    span.nav-title-color A 
-                    span.nav-title-color H
+                    span.text-color-b1 A 
+                    span.text-color-b1 H
                     span(style="font-size: 50px; color: var(--g2);") ouse
                             
                 .item-stats
                     span Project Type
                     span : 
-                    span.nav-title-color(style="float: right;") Data Collection Website
+                    span.text-color-b1(style="float: right;") Data Collection Website
                     br
                     span Project Nature
                     span : 
-                    span.nav-title-color(style="float: right;") Personal 
+                    span.text-color-b1(style="float: right;") Personal 
                     br
                     span Languages
                     span : 
-                    span.nav-title-color(style="float: right;") HTML, CSS, JavaScript
+                    span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
                     br
                     span Run Time Enviroment
                     span : 
-                    span.nav-title-color(style="float: right;") Node.js 
+                    span.text-color-b1(style="float: right;") Node.js 
                     br
                     spa Database
                     span : 
-                    span.nav-title-color(style="float: right;") MySQL 
+                    span.text-color-b1(style="float: right;") MySQL 
                      
-                .item-description-info
-                    span.nav-title-color(style="font-size: 0.9em; font-weight: 500;") The following text changes for each image
+                .item-description-title
                 .item-description
-                    span.desc 
-                    
-                        
+                       
                 .item-icons
                     .item-icons-left
                         a.item-icon(href="/portfolio#1")
                             .glyphicon.glyphicon-circle-arrow-left
-                            .item-link-icon-text Back
+                            .item-icon-text Back
                             
                     .item-icons-right
-                        .item-icon
+                        a.item-icon(href="http://berd.co.nz:3333/" target="_blank")
                             .glyphicon.glyphicon-globe
-                            .item-link-icon-text Live Link
+                            .item-icon-text Live Link
                             
-                        .item-icon(style="margin-left: 20px;")
+                        a.item-icon(href="https://github.com/remnanbenj/aah/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
-                            .item-link-icon-text Github
+                            .item-icon-text Github
                     
             .item-inner-right
-                .item-image(style="background-position: top;")
+            
+                .item-image(style="background-color: #EEEEEE;")
                 
-                .item-image-nav
-                   .item-image-nav-inner
-                     .glyphicon.glyphicon-menu-left(onclick="prevImage()")
-                     .item-image-nav-dot(id="d1")
-                     .item-image-nav-dot(id="d2")
-                     .item-image-nav-dot(id="d3")
-                     .item-image-nav-dot(id="d4")
-                     .item-image-nav-dot(id="d5")
-                     .item-image-nav-dot(id="d6")
-                     .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                .item-image-nav.noselect
+                    .item-image-nav-inner
+                        .glyphicon.glyphicon-menu-left(onclick="prevImage()")
+                        .item-image-nav-dot(id="d0")
+                        .item-image-nav-dot(id="d1")
+                        .item-image-nav-dot(id="d2")
+                        .item-image-nav-dot(id="d3")
+                        .item-image-nav-dot(id="d4")
+                        .item-image-nav-dot(id="d5")
+                        .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                        
+                    .item-image-nav-info &nbsp;
+                    
+                    .item-image-nav-screensize
+                        .glyphicon.glyphicon-menu-up
+                        .item-monitor-icon.selected
+                        .glyphicon.glyphicon-phone
+                        .glyphicon.glyphicon-menu-down
+                        
+                        
+            .item-inner-bottom 
+            
+                .item-description-title
+                .item-description
+                            
+                .item-stats
+                    span Project Type
+                    span : 
+                    span.text-color-b1(style="float: right;") Data Collection Website
+                    br
+                    span Project Nature
+                    span : 
+                    span.text-color-b1(style="float: right;") Personal 
+                    br
+                    span Languages
+                    span : 
+                    span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
+                    br
+                    span Run Time Enviroment
+                    span : 
+                    span.text-color-b1(style="float: right;") Node.js 
+                    br
+                    spa Database
+                    span : 
+                    span.text-color-b1(style="float: right;") MySQL 
+                       
+                .item-icons
+                    .item-icons-left
+                        a.item-icon(href="/portfolio#1")
+                            .glyphicon.glyphicon-circle-arrow-left
+                            .item-icon-text Back
+                            
+                    .item-icons-right
+                        a.item-icon(href="http://berd.co.nz:3333/" target="_blank")
+                            .glyphicon.glyphicon-globe
+                            .item-icon-text Live Link
+                            
+                        a.item-icon(href="https://github.com/remnanbenj/aah/" target="_blank" style="margin-left: 20px;")
+                            .item-github-icon
+                            .item-icon-text Github
                      
     script.
         
-        var textArray = [
-            'Text Description 1',
-            'Text Description 2',
-            'Text Description 3',
-            'Text Description 4',
-            'Text Description 5',
-            'Text Description 6'
-        ];
+        // Changeable variables
         var imageURL = 'aah';
+        var maxImages = 5;
+        var titleArray = [
+            'Introduction',
+            'Login',
+            'Dashboard',
+            'Water Heater',
+            'Power Monitor',
+            'Power Monitor'
+        ];
+        var textArray = [
+            'Text Description 0',
+            'A simple login to keep the data I\'ve collected about my house safe. If you wish to look around the site yourself via the Live Link below, you can login with username: test, password: test. This test account sees fake data and can\'t do any damage so feel free to take a look around. This website is very much a work in progress. Visual updates coming soon.',
+            'Empty front page',
+            'A snipit of data from my water heater. The black line is the temperature of the water at the top of the tank, red is the temperature at the bottom of the tank and yellow is the amount of electricity in kW currently being used by the water heater.',
+            'Hourly power monitor chart',
+            'Daily power monitor chart'
+        ];
+        var phoneImageAmounts = [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ];
         
-        var maxImages = 6;
-        var currentImage = 1;
-        var hashString = window.location.hash.replace('#','');
-        if(hashString != "") {
-            var currentImage = Number(hashString);
-        }
-        $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-        $("#d"+currentImage).addClass('selected');
-        changeText();
-        
-        $('.item-image-nav-dot').click(function() {
-            jumpToImage($(this).attr('id').replace('d', ''));
-        });
-        
-        function nextImage() {
-            if(currentImage==maxImages) return;
-            $("#d"+currentImage).removeClass('selected');
-            currentImage++;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-            changeText();
-        }
-        function prevImage() {
-            if(currentImage==1) return;
-            $("#d"+currentImage).removeClass('selected');
-            currentImage--;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-            changeText();
-        }
-        function jumpToImage(imageNum) {
-            $("#d"+currentImage).removeClass('selected');
-            currentImage = imageNum;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
-            changeText();
-        }
-        function changeText() {
-            $('.desc').html(textArray[currentImage-1]);
-        }
-        
+    script(src="/javascripts/portfolioItemImageScroll.js").
         
         
                      

@@ -1,13 +1,70 @@
 doctype html
-html
+html(lang="en")
+
   head
     title= title
+    meta(name="google" content="notranslate")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/nav.css')
     
   body
-  
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js").
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js").
     
     block content
+    
+    .navbar
+        .nav-title BERD
+        
+        a.nav-button(id="bio" href="/") Bio
+        a.nav-button(id="portfolio" href="/portfolio") Portfolio
+        a.nav-button(id="contact" href="/contact") Contact
+        
+        a.nav-icon.github(href="https://github.com/remnanbenj/" target="_blank")
+        a.nav-icon.linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank")
+        
+        .phone-nav-open
+            .glyphicon.glyphicon-menu-hamburger
+             
+    .phone-nav-background
+    .phone-nav
+        a.phone-nav-button(id="bioPhone" href="/" style="width: 200px; top: 10px;") Bio
+        a.phone-nav-button(id="portfolioPhone" href="/portfolio" style="width: 180px; top: 80px;") Portfolio
+        a.phone-nav-button(id="contactPhone" href="/contact" style="width: 160px; top: 150px;") Contact
+        a.phone-nav-github(href="https://github.com/remnanbenj/" target="_blank" style="width: 140px; top: 210px;")
+        a.phone-nav-linkedin(href="https://www.linkedin.com/in/ben-remnant/" target="_blank" style="width: 120px; top: 278px;")
+        
+        
+    script.
+    
+        // ====Page Setup====
+        
+        // Get path to the current location as an array
+        var path = window.location.pathname.split('/');
+        
+        // Get the top level directory (or 'bio' if we're on the homepage) from the path
+        var page = path[1] || 'bio';
+        
+        // Display the selected top level directory in the navbar on PC and Phone
+        $('#' + page).addClass('selected');
+        $('#' + page + "Phone").addClass('selected');
+        
+        // If we're in a portfolio item, update the portfolio link in the navbar
+        //  to skip the portfolio cover page (they've already seen it)
+        if(path[1] == 'portfolio' && path[2]) $("a[href='/portfolio']").attr('href', '/portfolio#1'); 
+        
+        
+        // ====Phone Nav====
+        
+        // Open phone nav
+        $('.phone-nav-open').click(()=>{
+            $('.phone-nav-background').css('display', 'block');
+            $('.phone-nav-button, .phone-nav-github, .phone-nav-linkedin').animate({'width': 'toggle'}, 160);
+        });
+        
+        // Close phone nav
+        $('.phone-nav-background, .phone-nav-button, .phone-nav-github, .phone-nav-linkedin').click(()=>{
+            $('.phone-nav-background').css('display', 'none');
+            $('.phone-nav-button, .phone-nav-github, .phone-nav-linkedin').animate({'width': 'toggle'}, 160);
+        });

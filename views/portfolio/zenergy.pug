@@ -1,65 +1,110 @@
-extends portfolio-item
+extends ../layout
 
-block portfolio-content
+block content
+    link(rel='stylesheet', href='/stylesheets/portfolio-item.css')
 
     .item-container
         .item-inner
             .item-inner-left
                         
                 .item-maintext 
-                    span.nav-title-color Z Energy 
+                    span.text-color-b1 Z Energy 
                     span(style="font-size: 50px; color: var(--g2);") Emails
                             
                 .item-stats
                     span Project Type
                     span : 
-                    span.nav-title-color(style="float: right;") HTML Email
+                    span.text-color-b1(style="float: right;") HTML Email
                     br
                     span Project Nature
                     span : 
-                    span.nav-title-color(style="float: right;") Commissioned 
+                    span.text-color-b1(style="float: right;") Commissioned 
                     br
                     span Languages
                     span : 
-                    span.nav-title-color(style="float: right;") HTML, CSS 
+                    span.text-color-b1(style="float: right;") HTML, CSS 
                      
-                .item-description-info
-                    span.nav-title-color(style="font-size: 0.9em; font-weight: 500;") The following text changes for each image
+                .item-description-title
                 .item-description
-                    span.desc 
                     
-                        
                 .item-icons
                     .item-icons-left
                         a.item-icon(href="/portfolio#1")
                             .glyphicon.glyphicon-circle-arrow-left
-                            .item-link-icon-text Back
+                            .item-icon-text Back
                             
                     .item-icons-right
-                        .item-icon
+                        a.item-icon(href="/zenergy.html" target="_blank")
                             .glyphicon.glyphicon-globe
-                            .item-link-icon-text Live Link
+                            .item-icon-text Live Link
                             
-                        .item-icon(style="margin-left: 20px;")
+                        a.item-icon(href="https://github.com/remnanbenj/zenergy-html-email/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
-                            .item-link-icon-text Github
+                            .item-icon-text Github
                     
             .item-inner-right
+            
                 .item-image(style="background-position: top;")
                 
-                .item-image-nav
-                   .item-image-nav-inner
-                     .glyphicon.glyphicon-menu-left(onclick="prevImage()")
-                     .item-image-nav-dot(id="d1")
-                     .item-image-nav-dot(id="d2")
-                     .item-image-nav-dot(id="d3")
-                     .item-image-nav-dot(id="d4")
-                     .item-image-nav-dot(id="d5")
-                     .item-image-nav-dot(id="d6")
-                     .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                .item-image-nav.noselect
+                    .item-image-nav-inner
+                        .glyphicon.glyphicon-menu-left(onclick="prevImage()")
+                        .item-image-nav-dot(id="d1")
+                        .item-image-nav-dot(id="d2")
+                        .item-image-nav-dot(id="d3")
+                        .item-image-nav-dot(id="d4")
+                        .item-image-nav-dot(id="d5")
+                        .item-image-nav-dot(id="d6")
+                        .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                        
+                        
+            .item-inner-bottom 
+            
+                .item-description-title
+                .item-description
+                            
+                .item-stats
+                    span Project Type
+                    span : 
+                    span.text-color-b1(style="float: right;") HTML Email
+                    br
+                    span Project Nature
+                    span : 
+                    span.text-color-b1(style="float: right;") Commissioned 
+                    br
+                    span Languages
+                    span : 
+                    span.text-color-b1(style="float: right;") HTML, CSS 
+                    
+                .item-icons
+                    .item-icons-left
+                        a.item-icon(href="/portfolio#1")
+                            .glyphicon.glyphicon-circle-arrow-left
+                            .item-icon-text Back
+                            
+                    .item-icons-right
+                        a.item-icon(href="/zenergy.html" target="_blank")
+                            .glyphicon.glyphicon-globe
+                            .item-icon-text Live Link
+                            
+                        a.item-icon(href="https://github.com/remnanbenj/zenergy-html-email/" target="_blank" style="margin-left: 20px;")
+                            .item-github-icon
+                            .item-icon-text Github
                      
     script.
         
+        // Changeable variables
+        var imageURL = 'zenergy';
+        var maxImages = 6;
+        var titleArray = [
+            'Introduction',
+            'Title1',
+            'Title2',
+            'Title3',
+            'Title4',
+            'Title5',
+            'Title6'
+        ];
         var textArray = [
             'Text Description 1',
             'Text Description 2',
@@ -68,51 +113,8 @@ block portfolio-content
             'Text Description 5',
             'Text Description 6'
         ];
-        var imageURL = 'zenergy';
         
-        var maxImages = 6;
-        var currentImage = 1;
-        var hashString = window.location.hash.replace('#','');
-        if(hashString != "") {
-            var currentImage = Number(hashString);
-        }
-        $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-        $("#d"+currentImage).addClass('selected');
-        changeText();
-        
-        $('.item-image-nav-dot').click(function() {
-            jumpToImage($(this).attr('id').replace('d', ''));
-        });
-        
-        function nextImage() {
-            if(currentImage==maxImages) return;
-            $("#d"+currentImage).removeClass('selected');
-            currentImage++;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-            changeText();
-        }
-        function prevImage() {
-            if(currentImage==1) return;
-            $("#d"+currentImage).removeClass('selected');
-            currentImage--;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-            changeText();
-        }
-        function jumpToImage(imageNum) {
-            $("#d"+currentImage).removeClass('selected');
-            currentImage = imageNum;
-            window.location.hash = currentImage;
-            $("#d"+currentImage).addClass('selected');
-            $(".item-image").css('background-image',"url('/images/portfolio/berd"+currentImage+".jpg')");
-            changeText();
-        }
-        function changeText() {
-            $('.desc').html(textArray[currentImage-1]);
-        }
+    script(src="/javascripts/portfolioItemImageScroll.js").
         
         
         
