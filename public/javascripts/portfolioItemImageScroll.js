@@ -128,27 +128,19 @@ function changeText() {
 
 // Scroll images with mouse
 
-var scrollReady = true;
-var scrollTime = 0;
 window.addEventListener('wheel', function(event) {
     event.preventDefault();
-    if(scrollReady){
-        if(event.deltaY < 0 && currentImage != 0) {
-            scrollLeft();
-        } else if(event.deltaY > 0 && currentImage != maxImages) {
-            scrollRight();
-        }
+    if(event.deltaY < 0 && currentImage != 0) {
+        scrollLeft();
+    } else if(event.deltaY > 0 && currentImage != maxImages) {
+        scrollRight();
     }
 });
 function scrollLeft() {
-    scrollReady = false;
     prevImage();
-    setTimeout(()=>{scrollReady = true;}, scrollTime);
 }
 function scrollRight() {
-    scrollReady = false;
     nextImage();
-    setTimeout(()=>{scrollReady = true;}, scrollTime);
 }
         
         
