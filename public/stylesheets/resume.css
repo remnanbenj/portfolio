@@ -1,0 +1,365 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+@import url(https://fonts.googleapis.com/css?family=Jockey+One);
+
+:root {
+  --b1: #7DC5FA;
+  --b2: #7DC5FA;
+  --g1: #777777;
+  --g2: #8F8F8F;
+  --g3: rgba(0,0,0,0.3);
+}
+
+body {
+  background: #EEEEEE;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #555555;
+  margin: 0px;
+}
+
+.resume-container {
+    position: relative;
+    width: calc(100% - 40px);
+    height: calc(100vh - 100px);
+    background: #EEEEEE;
+    padding: 20px;
+    overflow: auto;
+}
+
+page {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    background: white;
+
+    width: 21cm;
+    height: 29.7cm; 
+}
+
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+.ra:link, .ra:visited, .ra:hover, .ra:active {
+  color: var(--b1);
+  text-decoration: none;
+}
+
+
+/* Title */
+
+.title-container {
+  position: relative;
+  padding: 0.4cm;
+  padding-left: 0.8cm;
+  background: var(--b1);
+  overflow: auto;
+  color: white;
+}
+
+.picture {
+    float: left;
+    width: 4.2cm;
+    height: 4.2cm;
+    border-radius: 50%;
+    background: #EEEEEE;
+    background-position: 50% 0%;
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-image: url('/images/portrait/2.jpg');
+}
+
+.name {
+  margin-top: 0.8cm;
+  font-size: 34px;
+  font-weight: bold;
+  padding-left: 4.7cm;
+}
+
+.profession {
+  font-size: 20px;
+  padding-left: 4.9cm;
+}
+
+.website {
+  position: absolute;
+  bottom: 1.92cm;
+  right: 0.8cm;
+  font-size: 16px;
+  text-align: center;
+}
+
+.phone {
+  position: absolute;
+  bottom: 1.16cm;
+  right: 0.8cm;
+  font-size: 16px;
+  text-align: center;
+}
+
+.email {
+  position: absolute;
+  bottom: 0.4cm;
+  right: 0.8cm;
+  font-size: 16px;
+  text-align: center;
+}
+
+.contact-seperator1 {
+  position: absolute;
+  bottom: 1.74cm;
+  right: 0.8cm;
+  width: 50px;
+  height: 1px;
+  background: #FFFFFF;
+}
+
+.contact-seperator2 {
+  position: absolute;
+  bottom: 1cm;
+  right: 0.8cm;
+  width: 70px;
+  height: 1px;
+  background: #FFFFFF;
+}
+
+
+/* Content */
+
+.summary {
+  margin-top: 30px;
+  font-size: 15px;
+  text-align: center;
+  padding-left: 1.4cm;
+  padding-right: 1.4cm;
+  text-align: justify;
+}
+
+.column-container {
+  height: 300px;
+  margin-top: 30px;
+  padding-left: 1.4cm;
+  padding-right: 1.4cm;
+}
+
+.column-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.column-left {
+  float: left;
+  width: 33%;
+  height: 100%;
+}
+
+.column-inner {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  border-top: 3px solid var(--b2);
+}
+
+.skill {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.bullet {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  margin-bottom: 2px;
+  margin-left: 5px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--b1);
+}
+
+.star {
+  float: right;
+  height: 12px;
+  width: 12px;
+  margin-top: 2px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.skill-text {
+  margin-left: 5px;
+}
+
+.activated {
+  background: var(--b1);
+}
+
+.column-right {
+  float: left;
+  margin-left: 20px;
+  width: calc(67% - 20px);
+  height: 100%;
+}
+
+
+/* Experience */
+
+.exp {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.exp-job {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.exp-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--b1);
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.exp-content {
+  font-size: 14px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.exp-date {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.exp-link {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* Other */
+
+.download-container {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 1;
+  text-align: right;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  pointer-events: none;
+}
+
+.download {
+  display: inline-block;
+  padding: 15px 25px 14px 25px;
+  color: #FFFFFF!important;
+  text-decoration: none;
+  border-radius: 24px;
+  box-sizing: border-box;
+  background: var(--b2);
+  box-shadow: 2px 2px 2px #777777;
+  pointer-events: auto;
+}
+
+.download:hover {
+  background: var(--b1);
+}
+
+@media only screen and (max-width: 600px) {
+  body {  
+    margin: 0px;
+	background: white;
+	padding-bottom: 50px;
+  }
+  page {  
+    width: 100%;
+    height: auto;
+    margin: 0px;
+	padding-bottom: 100px;
+    box-shadow: none;
+  }
+  .title-container {
+    padding: 10px;
+  }
+  .picture {
+    width: 120px;
+	height: 120px;
+  }
+  .name {
+	  margin-top: 15px;
+	  padding-left: 135px;
+	  font-size: 22px;
+  }
+  .profession{
+	  font-size: 16px;
+	  padding-left: 140px;
+  }
+  .phone {
+	  right: 10px;
+	  bottom: 32px;
+	  font-size: 15px;
+  }
+  .contact-seperator2 {
+	  right: 10px;
+	  bottom: 29px;
+  }
+  .email {
+	  right: 10px;
+	  bottom: 10px;
+	  font-size: 15px;
+  }
+  .summary {
+	  padding: 20px;
+	  margin: 0px;
+  }
+  .column-container {
+	  padding: 20px;
+	  padding-top: 0px;
+	  margin: 0px;
+  }
+  .column-left {
+	  float: none;
+	  height: auto;
+	  width: 100%;
+  }
+  .column-right {
+	  float: none;
+	  height: auto;
+	  width: 100%;
+	  margin: 0px;
+  }
+  .download-container {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-right: 0px;
+  }
+  .download {
+    font-size: 14px;
+	padding: 10px 20px 10px 20px;
+  }
+  .exp {
+    padding-bottom: 18px;
+  }
+  .exp-date {
+    top: auto;
+    bottom: 0px;
+  }
+}
