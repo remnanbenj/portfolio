@@ -134,6 +134,7 @@
 /* RIGHT COLUMN */
 
 .item-image {
+    position: relative;
     padding-top: 56.25%;
     background-position: center;
     background-size: contain;
@@ -147,6 +148,16 @@
 .item-image.phone-double {
     width: 66.66%;
     margin: 0 auto;
+}
+
+.item-iframe {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: none;
 }
 
 @media only screen and (max-width: 600px) {

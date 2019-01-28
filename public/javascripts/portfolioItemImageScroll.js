@@ -7,9 +7,10 @@ var hashString = window.location.hash.replace('#','');
 if(hashString != "") { currentImage = Number(hashString); }
 
 // Setup page with currentImage var
-$(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
+reloadImage();
+//$(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
 $("#d"+currentImage).addClass('selected');
-changeText();
+//changeText();
 
 // Click a dot to jump to an image
 $('.item-image-nav-dot').click(function() {
@@ -109,8 +110,11 @@ function jumpToImage(imageNum) {
 function reloadImage() {
     $('.item-image').removeClass('phone-single');
     $('.item-image').removeClass('phone-double');
-    if(deviceView == "PC") $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
-    else if(deviceView == "Phone") {
+    if(deviceView == "PC") {
+        if(currentImage == 0) { $('.item-iframe').css('display', 'none'); $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')"); }
+        if(typeof urls !== 'undefined' && urls[currentImage]) { $('.item-iframe').css('display', 'block'); $('.item-iframe').attr('src', urls[currentImage]); }
+        else $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
+    } else if(deviceView == "Phone") {
         $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+"phone.jpg')");
         
         if(phoneImageAmounts[currentImage] == 1) $('.item-image').addClass('phone-single');

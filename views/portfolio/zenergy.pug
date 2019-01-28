@@ -37,17 +37,14 @@ block content
                             .item-icon-text Back
                             
                     .item-icons-right
-                        a.item-icon(href="/zenergy.html" target="_blank")
-                            .glyphicon.glyphicon-globe
-                            .item-icon-text Live Link
-                            
                         a.item-icon(href="https://github.com/remnanbenj/zenergy-html-email/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
                             .item-icon-text Github
                     
             .item-inner-right
             
-                .item-image(style="background-position: top;")
+                .item-image(style="background-color: #1E196B;")
+                  iframe.item-iframe
                 
                 .item-image-nav.noselect
                     .item-image-nav-inner
@@ -56,9 +53,6 @@ block content
                         .item-image-nav-dot(id="d1")
                         .item-image-nav-dot(id="d2")
                         .item-image-nav-dot(id="d3")
-                        .item-image-nav-dot(id="d4")
-                        .item-image-nav-dot(id="d5")
-                        .item-image-nav-dot(id="d6")
                         .glyphicon.glyphicon-menu-right(onclick="nextImage()")
                         
                         
@@ -90,10 +84,6 @@ block content
                             .item-icon-text Back
                             
                     .item-icons-right
-                        a.item-icon(href="/zenergy.html" target="_blank")
-                            .glyphicon.glyphicon-globe
-                            .item-icon-text Live Link
-                            
                         a.item-icon(href="https://github.com/remnanbenj/zenergy-html-email/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
                             .item-icon-text Github
@@ -103,24 +93,24 @@ block content
         // ====Page Setup====
         
         var imageURL = 'zenergy';
-        var maxImages = 6;
+        var maxImages = 3;
         var titleArray = [
             'Introduction',
-            'Title1',
-            'Title2',
-            'Title3',
-            'Title4',
-            'Title5',
-            'Title6'
+            'Account Approved',
+            'Get back to you soon',
+            'Business Vehicles'
         ];
         var textArray = [
-            'Intro',
-            'Text Description 1',
-            'Text Description 2',
-            'Text Description 3',
-            'Text Description 4',
-            'Text Description 5',
-            'Text Description 6'
+            'In this project I developed an HTML email designed by the <a href="https://www.hunch.co.nz/" style="color: var(--b1);">Hunch</a> team. This email design is not yet deployed by Z Energy and is subject to change.',
+            'This email is sent out after a successful account creation. Text between the [ ] brackets would change depending on the receiver. Only some of the hyperlinks on these pages are linked up.',
+            'This email is a quick confirmation that Z Energy is processing your Z Plus application.',
+            'This email is to be sent out to all the workers of a business so each worker can quickly fill out their info on the Z Energy website.'
+        ];
+        var urls = [
+            '',
+            '/images/portfolio/zenergy1.html',
+            '/images/portfolio/zenergy2.html',
+            '/images/portfolio/zenergy3.html'
         ];
         
     script(src="/javascripts/portfolioItemImageScroll.js").

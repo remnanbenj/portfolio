@@ -15,24 +15,20 @@ block content
                     span(style="font-size: 50px; color: var(--g2);") ouse
                             
                 .item-stats
-                    span Project Type
-                    span : 
+                    span Project Type: 
                     span.text-color-b1(style="float: right;") Data Collection Website
                     br
-                    span Project Nature
-                    span : 
+                    span Project Nature: 
+                    span(style="color: red; float: right;") &nbsp;WIP
                     span.text-color-b1(style="float: right;") Personal 
                     br
-                    span Languages
-                    span : 
+                    span Languages: 
                     span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
                     br
-                    span Run Time Enviroment
-                    span : 
+                    span Run Time Enviroment: 
                     span.text-color-b1(style="float: right;") Node.js 
                     br
-                    spa Database
-                    span : 
+                    spa Database: 
                     span.text-color-b1(style="float: right;") MySQL 
                      
                 .item-description-title
@@ -45,13 +41,21 @@ block content
                             .item-icon-text Back
                             
                     .item-icons-right
-                        a.item-icon(href="http://berd.co.nz:3333/" target="_blank")
+                        //-a.item-icon(href="http://berd.co.nz:3333/" target="_blank")
                             .glyphicon.glyphicon-globe
                             .item-icon-text Live Link
+                        .item-icon(style="color: #FF5959; cursor: default;")
+                            .glyphicon.glyphicon-globe
+                            .item-icon-text 
+                                span Live Link
+                                br
+                                span.item-icon-text-unavailable Unavailable
                             
                         a.item-icon(href="https://github.com/remnanbenj/aah/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
                             .item-icon-text Github
+                                br
+                                span.item-icon-text-unavailable &nbsp;
                     
             .item-inner-right
             
@@ -83,24 +87,20 @@ block content
                 .item-description
                             
                 .item-stats
-                    span Project Type
-                    span : 
+                    span Project Type: 
                     span.text-color-b1(style="float: right;") Data Collection Website
                     br
-                    span Project Nature
-                    span : 
+                    span Project Nature: 
+                    span(style="color: red; float: right;") &nbsp;WIP
                     span.text-color-b1(style="float: right;") Personal 
                     br
-                    span Languages
-                    span : 
+                    span Languages: 
                     span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
                     br
-                    span Run Time Enviroment
-                    span : 
+                    span Run Time Enviroment: 
                     span.text-color-b1(style="float: right;") Node.js 
                     br
-                    spa Database
-                    span : 
+                    spa Database: 
                     span.text-color-b1(style="float: right;") MySQL 
                        
                 .item-icons
@@ -110,13 +110,21 @@ block content
                             .item-icon-text Back
                             
                     .item-icons-right
-                        a.item-icon(href="http://berd.co.nz:3333/" target="_blank")
+                        //-a.item-icon(href="http://berd.co.nz:3333/" target="_blank")
                             .glyphicon.glyphicon-globe
                             .item-icon-text Live Link
+                        .item-icon(style="color: #FF5959; cursor: default;")
+                            .glyphicon.glyphicon-globe
+                            .item-icon-text 
+                                span Live Link
+                                br
+                                span.item-icon-text-unavailable Unavailable
                             
                         a.item-icon(href="https://github.com/remnanbenj/aah/" target="_blank" style="margin-left: 20px;")
                             .item-github-icon
                             .item-icon-text Github
+                                br
+                                span.item-icon-text-unavailable &nbsp;
                      
     script.
     
@@ -133,7 +141,7 @@ block content
             'Power Monitor'
         ];
         var textArray = [
-            'About A House is a website that displays data collected about your house. I build IoT devices to collect this data and send it to my server. This website is very much a Work In Progress.',
+            'About A House is a website that displays data collected about your house. I build IoT devices to collect this data and send it to my server. This website is very much a <span style="color: red;">W</span>ork <span style="color: red;">I</span>n <span style="color: red;">P</span>rogress.',
             'A simple login to keep the data I\'ve collected about my house safe. If you wish to look around the site yourself via the Live Link below, you can login with username: test, password: test. This test account sees fake data and can\'t do any damage so feel free to take a look around.',
             'The dashboard is where you will get an overview of all your connected devices and the data they have recently collected. More pressing information will be available in the notifications dropdown, available at the top-right of the page.',
             'A snipit of data from my water heater. The black line is the temperature of the water at the top of the tank, red is the temperature at the bottom of the tank and yellow is the amount of electricity in kW currently being used by the water heater.',
