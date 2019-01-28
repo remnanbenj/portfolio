@@ -45,6 +45,7 @@ html(lang="en")
         
         // Get the top level directory (or 'bio' if we're on the homepage) from the path
         var page = path[1] || 'bio';
+        if(page == 'resume') page = 'bio';
         
         // Display the selected top level directory in the navbar on PC and Phone
         $('#' + page).addClass('selected');
