@@ -108,7 +108,7 @@ page {
 
 .website {
   position: absolute;
-  bottom: 1.92cm;
+  bottom: 2.64cm;
   right: 0.8cm;
   font-size: 16px;
   text-align: center;
@@ -116,13 +116,21 @@ page {
 
 .phone {
   position: absolute;
-  bottom: 1.16cm;
+  bottom: 1.92cm;
   right: 0.8cm;
   font-size: 16px;
   text-align: center;
 }
 
 .email {
+  position: absolute;
+  bottom: 1.16cm;
+  right: 0.8cm;
+  font-size: 16px;
+  text-align: center;
+}
+
+.linkedin {
   position: absolute;
   bottom: 0.4cm;
   right: 0.8cm;
@@ -132,7 +140,7 @@ page {
 
 .contact-seperator1 {
   position: absolute;
-  bottom: 1.74cm;
+  bottom: 2.48cm;
   right: 0.8cm;
   width: 50px;
   height: 1px;
@@ -141,9 +149,18 @@ page {
 
 .contact-seperator2 {
   position: absolute;
+  bottom: 1.74cm;
+  right: 0.8cm;
+  width: 80px;
+  height: 1px;
+  background: #FFFFFF;
+}
+
+.contact-seperator3 {
+  position: absolute;
   bottom: 1cm;
   right: 0.8cm;
-  width: 70px;
+  width: 120px;
   height: 1px;
   background: #FFFFFF;
 }
