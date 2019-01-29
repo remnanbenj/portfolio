@@ -125,10 +125,10 @@
     border-radius: 50%;
     
     background: #EEEEEE;
-    background-position: 50% 0%;
-    background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('/images/portrait/2.jpg');
+    background-position: 40% 10%;
+    background-size: 150%;
+    background-image: url('/images/portrait/6.jpg');
 }
 
 /* Bio Right */
