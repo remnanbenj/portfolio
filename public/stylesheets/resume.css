@@ -29,6 +29,7 @@ page {
     display: block;
     position: relative;
     margin: 0 auto;
+    margin-bottom: 20px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
     background: white;
 
@@ -54,7 +55,6 @@ page {
     padding: 15px;
     background: var(--b2);
     margin: 0 auto;
-    margin-top: 20px;
     margin-bottom: 20px;
     color: white;
     text-align: center;
@@ -150,53 +150,60 @@ page {
 /* Content */
 
 .summary {
-  margin-top: 30px;
-  font-size: 15px;
-  text-align: center;
-  padding-left: 1.4cm;
-  padding-right: 1.4cm;
-  text-align: justify;
+    margin-top: 30px;
+    font-size: 15px;
+    text-align: center;
+    padding-left: 1.4cm;
+    padding-right: 1.4cm;
+    text-align: justify;
 }
 
 .column-container {
-  height: 300px;
-  margin-top: 30px;
-  padding-left: 1.4cm;
-  padding-right: 1.4cm;
-}
-
-.column-title {
-  font-weight: bold;
-  margin-bottom: 10px;
+    margin-top: 30px;
+    padding-left: 1.4cm;
+    padding-right: 1.4cm;
+    overflow: auto;
 }
 
 .column-left {
+    float: left;
+    width: 33%;
+    height: 100%;
+}
+
+.column-right {
   float: left;
-  width: 33%;
+  margin-left: 20px;
+  width: calc(67% - 20px);
   height: 100%;
 }
 
+.column-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .column-inner {
-  position: relative;
-  padding-top: 5px;
-  padding-bottom: 25px;
-  border-top: 3px solid var(--b2);
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    border-top: 3px solid var(--b2);
 }
 
 .skill {
-  font-size: 14px;
-  margin-bottom: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 .bullet {
-  display: inline-block;
-  height: 6px;
-  width: 6px;
-  margin-bottom: 2px;
-  margin-left: 5px;
-  margin-right: 8px;
-  border-radius: 50%;
-  background: var(--b1);
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--b1);
 }
 
 .star {
@@ -215,13 +222,6 @@ page {
 
 .activated {
   background: var(--b1);
-}
-
-.column-right {
-  float: left;
-  margin-left: 20px;
-  width: calc(67% - 20px);
-  height: 100%;
 }
 
 
@@ -270,6 +270,31 @@ page {
   font-size: 12px;
   font-weight: bold;
   text-align: center;
+}
+
+.reference-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.reference-job {
+    font-weight: 600;
+    color: var(--b1);
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.reference-company {
+    margin-left: 5px;
+}
+
+.reference-phone {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.reference-email {
+    margin-left: 10px;
 }
 
 
