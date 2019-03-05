@@ -112,7 +112,7 @@ function reloadImage() {
     $('.item-image').removeClass('phone-double');
     if(deviceView == "PC") {
         if(currentImage == 0) { $('.item-iframe').css('display', 'none'); $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')"); }
-        if(typeof urls !== 'undefined' && urls[currentImage]) { $('.item-iframe').css('display', 'block'); $('.item-iframe').attr('src', urls[currentImage]); }
+        if(typeof urls !== 'undefined' && urls[currentImage]) { $(".item-image").css('background-image', '' ); $('.item-iframe').css('display', 'block'); $('.item-iframe').attr('src', urls[currentImage]); }
         else $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+".jpg')");
     } else if(deviceView == "Phone") {
         $(".item-image").css('background-image',"url('/images/portfolio/"+imageURL+currentImage+"phone.jpg')");

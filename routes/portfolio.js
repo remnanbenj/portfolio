@@ -26,4 +26,8 @@ router.get('/aah', function(req, res, next) {
   res.render('portfolio/aah', { title: 'Portfolio' });
 });
 
+router.get('/nzherald', function(req, res, next) {
+  res.render('portfolio/nzherald', { title: 'Portfolio' });
+});
+
 module.exports = router;

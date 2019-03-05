@@ -1,0 +1,104 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/portfolio-item.css')
+
+    .item-container
+        .item-inner
+            .item-inner-left
+                        
+                .item-maintext 
+                    span.text-color-b1 NZ Herald 
+                    span(style="font-size: 50px; color: var(--g2);") Banners
+                            
+                .item-stats
+                    span Project Type: 
+                    span.text-color-b1(style="float: right;") Digital Advertising
+                    br
+                    span Project Nature: 
+                    span.text-color-b1(style="float: right;") Commissioned
+                    br
+                    span Position: 
+                    span.text-color-b1(style="float: right;") Front End Developer
+                    br
+                    span Languages: 
+                    span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
+                    br
+                    span Run Time Enviroment: 
+                    span.text-color-b1(style="float: right;") Node.js
+                     
+                .item-description-title
+                .item-description
+                    
+                .item-icons
+                    .item-icons-left
+                        a.item-icon(href="/portfolio#1")
+                            .glyphicon.glyphicon-circle-arrow-left
+                            .item-icon-text Back
+                    
+                    
+            .item-inner-right
+            
+                .item-image(style="background-color: #FFFFFF;")
+                  iframe.item-iframe
+                
+                .item-image-nav.noselect
+                    .item-image-nav-inner
+                        .glyphicon.glyphicon-menu-left(onclick="prevImage()")
+                        .item-image-nav-dot(id="d0")
+                        .item-image-nav-dot(id="d1")
+                        .glyphicon.glyphicon-menu-right(onclick="nextImage()")
+                        
+                    .item-image-nav-info &nbsp;
+                        
+                        
+            .item-inner-bottom 
+            
+                .item-description-title
+                .item-description
+                            
+                .item-stats
+                    span Project Type: 
+                    span.text-color-b1(style="float: right;") Digital Advertising
+                    br
+                    span Project Nature: 
+                    span.text-color-b1(style="float: right;") Commissioned
+                    br
+                    span Position: 
+                    span.text-color-b1(style="float: right;") Front End Developer
+                    br
+                    span Languages: 
+                    span.text-color-b1(style="float: right;") HTML, CSS, JavaScript
+                    br
+                    span Run Time Enviroment: 
+                    span.text-color-b1(style="float: right;") Node.js
+                    
+                .item-icons
+                    .item-icons-left
+                        a.item-icon(href="/portfolio#1")
+                            .glyphicon.glyphicon-circle-arrow-left
+                            .item-icon-text Back
+                     
+    script.
+    
+        // ====Page Setup====
+        
+        var imageURL = 'nzh';
+        var maxImages = 1;
+        var titleArray = [
+            'Introduction',
+            'Banners'
+        ];
+        var textArray = [
+            'I developed these digital advertising banners for The New Zealand Herald (<a href="https://www.nzherald.co.nz/">https://www.nzherald.co.nz/</a>). They were designed by a team at Hunch (<a href="https://www.hunch.co.nz/">https://www.hunch.co.nz/</a>).',
+            'Unfotunately this page is not yet mobile friendly. To get a better viewing experience on mobile go to <a href="http://tec.co.nz/NZHBanner/banners.html">http://tec.co.nz/NZHBanner/banners.html</a>.'
+        ];
+        var urls = [
+            '',
+            'http://tec.co.nz/NZHBanner/banners.html'
+        ];
+        
+    script(src="/javascripts/portfolioItemImageScroll.js").
+        
+        
+        
