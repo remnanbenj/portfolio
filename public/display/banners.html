@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<style>
+    body {
+        margin: 0px;
+        padding: 30px;
+    }
+    
+    .title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .title-button {
+        display: inline-block;
+        float: right;
+        background: orange;
+        color: white;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+    .title-button:hover {
+        background: red;
+    }
+    
+    .rec-container {
+        display: block;
+        width: 300px;
+        float: left;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+    .rec {
+        width: 300px;
+        height: 250px;
+        border: none;
+        box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
+    }
+    
+    
+    .half-page-container {
+        display: block;
+        width: 300px;
+        float: left;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+    .half-page {
+        width: 300px;
+        height: 600px;
+        border: none;
+        box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
+    }
+    
+    .nav {
+        margin-bottom: 50px;
+    }
+    .nav-button {
+        display: inline-block;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-right: 20px;
+        background: orange;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    .nav-button.selected {
+        background: blue;
+    }
+    .nav-button:hover {
+        background: red;
+    }
+    
+</style>
+
+</head>
+
+<body>
+    <div class="nav">
+        <a href="banners.html" class="nav-button selected">Rec 300x250 Banners</a>
+        <a href="banners-half-page.html" class="nav-button">Half Page 300x600 Banners</a>
+        <a href="banners-billboard.html" class="nav-button">Billboard 970x250 Banners</a>
+        <a href="banners-leaderboard.html" class="nav-button">Leaderboard 728x90 Banners</a>
+    </div>
+    
+    <div style="overflow: auto;">
+        <div class="rec-container">
+            <div class="title">Rec: Keep<br>300px by 250px</div>
+            <iframe id="rec-keep" src="300x250/300x250-keep/index.html" class="rec"></iframe>
+            <div class="title-button" onclick="refresh('#rec-keep')">Refresh</div>
+        </div>
+        <div class="rec-container">
+            <div class="title">Rec: Keep Premium<br>300px by 250px</div>
+            <iframe id="rec-keep-prem" src="300x250/300x250-keep-prem/index.html" class="rec"></iframe>
+            <div class="title-button" onclick="refresh('#rec-keep-prem')">Refresh</div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function refresh(frame){
+            $(frame).attr('src', $(frame).attr('src'));
+        }
+    </script>
+
+</body>
+
+</html>

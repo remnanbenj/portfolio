@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<style>
+    body {
+        margin: 0px;
+        padding: 30px;
+    }
+    
+    .title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .title-button {
+        display: inline-block;
+        float: right;
+        background: orange;
+        color: white;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+    .title-button:hover {
+        background: red;
+    }
+    
+    .rec-container {
+        display: block;
+        width: 300px;
+        float: left;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+    .rec {
+        width: 300px;
+        height: 250px;
+        border: none;
+        box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
+    }
+    
+    
+    .half-page-container {
+        display: block;
+        width: 300px;
+        float: left;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+    .half-page {
+        width: 300px;
+        height: 600px;
+        border: none;
+        box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
+    }
+    
+    .leaderboard-container {
+        display: block;
+        width: 728px;
+        float: left;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+    .leaderboard {
+        width: 728px;
+        height: 90px;
+        border: none;
+        box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
+    }
+    
+    .nav {
+        margin-bottom: 50px;
+    }
+    .nav-button {
+        display: inline-block;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-right: 20px;
+        background: orange;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    .nav-button.selected {
+        background: blue;
+    }
+    .nav-button:hover {
+        background: red;
+    }
+    
+</style>
+
+</head>
+
+<body>
+    <div class="nav">
+        <a href="banners.html" class="nav-button">Rec 300x250 Banners</a>
+        <a href="banners-half-page.html" class="nav-button">Half Page 300x600 Banners</a>
+        <a href="banners-billboard.html" class="nav-button">Billboard 970x250 Banners</a>
+        <a href="banners-leaderboard.html" class="nav-button selected">Leaderboard 728x90 Banners</a>
+    </div>
+    
+    <div style="overflow: auto;">
+    
+        <div class="leaderboard-container">
+            <div class="title">Leaderboard: Harvard<br>728px by 90px</div>
+            <iframe id="leaderboard-harvard" src="728x90/728x90-harvard/index.html" class="leaderboard"></iframe>
+            <div class="title-button" onclick="refresh('#leaderboard-harvard')">Refresh</div>
+        </div>
+    
+        <div class="leaderboard-container">
+            <div class="title">Leaderboard: Harvard Prem<br>728px by 90px</div>
+            <iframe id="leaderboard-harvard-prem" src="728x90/728x90-harvard-prem/index.html" class="leaderboard"></iframe>
+            <div class="title-button" onclick="refresh('#leaderboard-harvard-prem')">Refresh</div>
+        </div>
+        
+    </div>
+    
+    <div style="overflow: auto;">
+    
+        <div class="leaderboard-container">
+            <div class="title">Leaderboard: Small<br>728px by 90px</div>
+            <iframe id="leaderboard-small" src="728x90/728x90-small/index.html" class="leaderboard"></iframe>
+            <div class="title-button" onclick="refresh('#leaderboard-small')">Refresh</div>
+        </div>
+    
+        <div class="leaderboard-container">
+            <div class="title">Leaderboard: Small Prem<br>728px by 90px</div>
+            <iframe id="leaderboard-small-prem" src="728x90/728x90-small-prem/index.html" class="leaderboard"></iframe>
+            <div class="title-button" onclick="refresh('#leaderboard-small-prem')">Refresh</div>
+        </div>
+        
+    </div>
+    
+    <div style="overflow: auto;">
+    
+        <div class="leaderboard-container">
+            <div class="title">Leaderboard: Wellington<br>728px by 90px</div>
+            <iframe id="leaderboard-wellington" src="728x90/728x90-wellington/index.html" class="leaderboard"></iframe>
+            <div class="title-button" onclick="refresh('#leaderboard-wellington')">Refresh</div>
+        </div>
+    
+        <div class="leaderboard-container">
+            <div class="title">Leaderboard: Wellington Prem<br>728px by 90px</div>
+            <iframe id="leaderboard-wellington-prem" src="728x90/728x90-wellington-prem/index.html" class="leaderboard"></iframe>
+            <div class="title-button" onclick="refresh('#leaderboard-wellington-prem')">Refresh</div>
+        </div>
+        
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function refresh(frame){
+            $(frame).attr('src', $(frame).attr('src'));
+        }
+    </script>
+
+</body>
+
+</html>
